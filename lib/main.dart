@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'presentation/routes/app_routes.dart';
-import 'presentation/viewmodels/marvel_viewmodel.dart';
-import 'domain/usecases/get_marvel.dart';
-import 'data/repositories/marvel_repositories.dart';
-import 'data/datasource/marvel_datasource.dart';
+import 'presentation/viewmodels/cat_viewmodel.dart';
+import 'domain/usecases/get_cat_images.dart';
+import 'data/repositories/cat_repository.dart';
+import 'data/datasource/cat_datasource.dart';
 
 void main() {
   runApp(const MyApp());

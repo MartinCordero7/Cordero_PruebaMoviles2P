@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../viewmodels/marvel_viewmodel.dart';
+import '../viewmodels/cat_viewmodel.dart';
 import '../../domain/entities/cat.dart';
 
 class HomePage extends StatefulWidget {
@@ -186,7 +186,7 @@ class CatCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  cat.breeds.isNotEmpty ? cat.breeds.first : 'Gato desconocido',
+                  cat.breeds.isNotEmpty ? cat.breeds.first : 'Gato ${cat.id.substring(0, cat.id.length > 4 ? 4 : cat.id.length)}',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(

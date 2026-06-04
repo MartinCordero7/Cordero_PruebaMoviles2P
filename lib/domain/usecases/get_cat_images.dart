@@ -1,5 +1,5 @@
 import '../entities/cat.dart';
-import '../../data/repositories/marvel_repositories.dart';
+import '../../data/repositories/cat_repository.dart';
 
 class GetCatImages {
   final CatRepository repository;

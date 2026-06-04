@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../domain/entities/cat.dart';
-import '../../domain/usecases/get_marvel.dart';
+import '../../domain/usecases/get_cat_images.dart';
 
 class CatViewModel extends ChangeNotifier {
   final GetCatImages getCatImages;
@@ -29,16 +29,10 @@ class CatViewModel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      print('DEBUG: Loading page $_currentPage');
       final newCats = await getCatImages(
         limit: _pageSize,
         page: _currentPage,
       );
-
-      print('DEBUG: Received ${newCats.length} cats');
-      for (int i = 0; i < newCats.length; i++) {
-        print('DEBUG: Cat $i - ID: ${newCats[i].id}, URL: ${newCats[i].url}');
-      }
 
       if (reset) {
         _cats = newCats;
@@ -47,10 +41,8 @@ class CatViewModel extends ChangeNotifier {
       }
 
       _currentPage++;
-      print('DEBUG: Total cats now: ${_cats.length}, Next page will be: $_currentPage');
     } catch (e) {
       _errorMessage = 'Error: ${e.toString()}';
-      print('DEBUG: Error - $e');
     } finally {
       _isLoading = false;
       notifyListeners();
